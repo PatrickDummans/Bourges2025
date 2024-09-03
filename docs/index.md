@@ -3,7 +3,7 @@
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 ## Situation et répartition géographique
 Le site de Tours : il regroupe le laboratoire de test et la production des équipements plastique
-![Cartes Bourges](images/cartes-bourges.jpeg)
+![Cartes Bourges](Bourges2025/images/cartes-bourges.jpeg)
 
 ## Commands
 
