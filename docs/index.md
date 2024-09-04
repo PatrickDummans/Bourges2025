@@ -2,7 +2,7 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 ## Situation et répartition géographique
-Le site de Tours : il regroupe le laboratoire de test et la production des équipements plastique
+le site de Bourges : situé idéalement au centre de la France > les stocks et la logistique sont la spécialité de ce site.
 ![Cartes Bourges](https://github.com/PatrickDummans/Bourges2025/raw/main/images/carte-bourges)
 
 ## Commands
