@@ -17,7 +17,7 @@
 
 ## VM Linux & Windows server
 
-| ID de VLAN       | Nom De la VM    | LOGS  | IP   |
-| :--------------- |:---------------:| -----:|-----:
-| 210              |   BRG_LIN_CLONE      |  Passw0rd123456! / admin | 172.28.64.3 |
-| 211              |   BRG_WINSERV2019    |  P@ssw0rd123456! / admin | 172.28.64.2 |
+| ID de VLAN       | Nom De la VM     | LOGS                      | IP          |
+| :--------------- |:---------------: | ------------------------: | ------------:
+| 210              |   BRG_LIN_CLONE  |  Passw0rd123456! / admin  | 172.28.64.3 |
+| 211              |   BRG_WINSERV2019|  P@ssw0rd123456! / admin  | 172.28.64.2 |
