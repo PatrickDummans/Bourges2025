@@ -77,3 +77,24 @@ L'interface `dmz1` est utilisée pour les zones démilitarisées (DMZ). Cette zo
 Voici une capture d'écran de la configuration des interfaces :
 
 ![Capture d'écran des interfaces réseau](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/fff.png)
+
+
+### Accès aux pages d'administration du firewall
+
+Dans notre cas, il est indispensable de pouvoir accéder au firewall depuis le VLAN de management. Nous allons donc ajouter un accès aux pages d'administration du firewall.
+
+1. Se rendre dans **Configuration** :
+   - Sélectionner dans l'onglet **Système** la rubrique **Configuration**.
+   - Sélectionner **Administration du Firewall**.
+
+2. Se rendre dans la partie **"Accès aux pages d'administration du firewall"** :
+   - Cliquer sur le petit **+ Ajouter** en haut à gauche de l'interface.
+   - Choisir **Réseaux** à gauche.
+   - Remplir les champs **Nom** et **Réseau**.
+
+Voici des captures d'écran de la configuration :
+
+
+![Capture d'écran pas finis](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/confobjet.png)
+
+![Capture d'écran conf finis ](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/sss.png)
