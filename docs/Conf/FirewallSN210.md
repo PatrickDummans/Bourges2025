@@ -27,7 +27,7 @@ Voici un exemple de configuration avec deux serveurs NTP utilisés pour synchron
 
 Fuseau horaire configuré : `Europe/Paris`.
 
-![Capture d'écran des paramètres de date et heure](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/ddd.png)
+![Capture d'écran des paramètres de date et heure](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Confg%C3%A9n%C3%A9raleFW.png)
 
 ---
 
@@ -35,21 +35,30 @@ Fuseau horaire configuré : `Europe/Paris`.
 
 Le Stormshield SN210 propose plusieurs interfaces réseau. Ci-dessous, nous décrivons la configuration de chaque interface :
 
-### Interface `in`
+### Interface `BRG_LAN`
 
 Cette interface est utilisée pour le réseau interne protégé. Voici les étapes de configuration :
 
-1. Sélectionnez l'interface **in** dans la liste des interfaces disponibles.
+1. Sélectionnez l'interface **BRG_LAN** dans la liste des interfaces disponibles.
 2. Assurez-vous que l'état de l'interface est activé (`ON`).
 3. Paramètres généraux :
-   - Nom de l'interface : `in`
+   - Nom de l'interface : `BRG_LAN`
    - Type d'interface : **Interne (protégée)**
 4. Plan d'adressage :
-   - Adresse IPv4 statique : `192.168.255.126/25`
+   - Adresse IPv4 statique : `10.0.219.254/24`
 
-Voici une capture d'écran de cette configuration :
+### Interface `VLAN_MANA`
 
-![Capture d'écran de l'interface in](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/fff.png)
+Cette interface est utilisée pour le réseau interne protégé. Voici les étapes de configuration :
+
+1. Sélectionnez l'interface **VLAN_MANA** dans la liste des interfaces disponibles.
+2. Assurez-vous que l'état de l'interface est activé (`ON`).
+3. Paramètres généraux :
+   - Nom de l'interface : `VLAN_MANA`
+   - Type d'interface : **Interne (protégée)**
+4. Plan d'adressage :
+   - Adresse IPv4 statique : `192.168.0.126/24`
+
 
 ### Interface `out`
 
@@ -76,7 +85,7 @@ L'interface `dmz1` est utilisée pour les zones démilitarisées (DMZ). Cette zo
 
 Voici une capture d'écran de la configuration des interfaces :
 
-![Capture d'écran des interfaces réseau](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/fff.png)
+![Capture d'écran des interfaces réseau](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/interfacesFW.png)
 
 
 ### Accès aux pages d'administration du firewall
@@ -94,7 +103,21 @@ Dans notre cas, il est indispensable de pouvoir accéder au firewall depuis le V
 
 Voici des captures d'écran de la configuration :
 
+![Capture d'écran conf finis ](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/administrationFW.png)
 
-![Capture d'écran pas finis](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/confobjet.png)
 
-![Capture d'écran conf finis ](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/sss.png)
+### Politique de Sécurité / Filtrage et NAT
+
+Le firewall refuse par défaut notre connexion. Toutefois, si l'on modifie la politique de sécurité en la définissant sur **Pass All**, nous pourrons nous connecter.
+
+1. Se rendre dans **Configuration** 
+   - Sélectionner dans l'onglet **politique de Sécurité** la rubrique **Politique de Sécuriter / Filtrage et Nat**.
+
+2. Sélectionner le niveau de **filtre**
+   - Définir le niveau de filtre sur **(10) Pass ALL**
+
+Voici une capture d'écran de la configuration :
+
+![politiqueFW](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/politiqueFW.png)
+
+

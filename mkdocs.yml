@@ -1,3 +1,11 @@
 site_name: Bourges
 theme:
   name: material
+  language: fr
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode    
+      primary: teal
+      accent: lime
