@@ -87,6 +87,7 @@ Voici une capture d'écran de la configuration des interfaces :
 
 ![Capture d'écran des interfaces réseau](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/interfacesFW.png)
 
+---
 
 ### Accès aux pages d'administration du firewall
 
@@ -105,6 +106,7 @@ Voici des captures d'écran de la configuration :
 
 ![Capture d'écran conf finis ](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/administrationFW.png)
 
+---
 
 ### Politique de Sécurité / Filtrage et NAT
 
