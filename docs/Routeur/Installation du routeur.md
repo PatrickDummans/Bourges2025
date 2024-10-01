@@ -1,6 +1,6 @@
 # Routeur CISCO
 
-## <span style="color: black"> **Installation du Routeur** ##
+## <span style="color: white"> **Installation du Routeur** ##
 
 Pour commencer **l'installation du routeur**, on a besoin de **reset la configuration** :
 
@@ -18,7 +18,7 @@ Quand la question "**Quelle interface on souhaite choisir**", il faudra sélecti
 
 **`GigabitEthernet 0/1`** (Pour notre cas)
 
-### <span style="color: black"> **Connexion SSH** ###
+### <span style="color: white"> **Connexion SSH** ###
 
 Le protocole Secure Shell (SSH) permet d'établir des connexions chiffrées à distance entre des ordinateurs. Il permet également la tunnellisation. Pour effectuer cette installation: 
 
@@ -38,7 +38,7 @@ Router(config-line)# exec-timeout 5 0
 Router(config-line)# exit
 Router# write memory
 ``` 
-### <span style="color: black"> **Configuration des interfaces des routeurs** ###
+### <span style="color: white"> **Configuration des interfaces des routeurs** ###
 
 **R1**
 
@@ -108,7 +108,7 @@ interface GigabitEthernet0/1.212
 ```
 **`BIEN METTRE LA COMMANDE "ip nat inside" SUR L'INTERFACE PHYSIQUE DE LA PARTIE LAN ET EGALEMENT SUR L'INTERFACE VIRTUELLE `**
 
-### <span style="color: black"> **Configuration des routes sur les routeurs** ###
+### <span style="color: white"> **Configuration des routes sur les routeurs** ###
 
 **R1**
 ```
