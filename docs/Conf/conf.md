@@ -131,6 +131,3 @@ ip ssh time-out 60
 ip ssh version 2
 ```
 
-##  Router 
-
-```
