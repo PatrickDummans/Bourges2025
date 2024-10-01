@@ -1,7 +1,6 @@
 site_name: Bourges
 theme:
   name: material
-  logo : F5xJkAnWYAAG7eY.jpeg
   language: fr
   palette:
     - scheme: slate
