@@ -41,6 +41,8 @@ write memory
 # show vlan brief (pour voir les vlan et les port affecter a ses derniers)
 # show ip interface brief (ip affecter au vlan)
 ```
+### Conf final du Coeur de réseau
+
 ```
 interface GigabitEthernet0/0
  vrf forwarding Mgmt-vrf
