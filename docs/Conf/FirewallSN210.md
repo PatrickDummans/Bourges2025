@@ -1,4 +1,4 @@
-# Documentation de configuration du pare-feu Stormshield SN210
+# Documentation configuration Firewall & DMZ
 
 ## Table des matières
 1. [Configuration de la date et de l'heure](#configuration-de-la-date-et-de-lheure)
@@ -123,3 +123,30 @@ Voici une capture d'écran de la configuration :
 ![politiqueFW](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/politiqueFW.png)
 
 
+---
+
+### Création de la DMZ privée et publique 
+
+## Création de la DMZ privée :
+
+1. Se rendre dans **Configuration**.
+   - Sélectionner dans l'onglet **Réseau** la rubrique **Interfaces**.
+
+2. Cliquer sur **Ajouter**.
+   - Renseigner les information nécessaires, le nom **dmz_public** sont identifiant **214** et sont adresse ip **192.168.18.254/24** 
+
+---
+
+## Création de la DMZ privée :
+
+
+1. Se rendre dans **Configuration**.
+   - Sélectionner dans l'onglet **Réseau** la rubrique **Interfaces**.
+
+2. Cliquer sur **Ajouter**.
+   - Renseigner les information nécessaires, le nom **dmz_privée** sont identifiant **212** et sont adresse ip **192.168.20.254/24** 
+
+
+Voici une capture d'écran de a confuguration effectuer : 
+
+![dmz1](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/dmz1.png)
