@@ -25,6 +25,8 @@
 
 - Tout ceci fait, une fois que l'installation est terminée, il vous suffit de fermer l'installeur une fois que tout est fini, et HmailServer se lancera automatiquement.
 
+---
+
 ### Configurer Hmailserver 
 
 1. Se connecter et entrer le mdp 
@@ -43,11 +45,11 @@
 - Dans settings, puis Advanced et Autoban 
 - Décocher la case Enabled
 
-![Autoban](https://github.com/PatrickDummans/Bourges2025/blob/main/images/autoban.png)
+![Autoban](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/autoban.png)
 
 5. Vérifier si tout fonctionne convenablement
 - Aller dans Utilities et cliquer sur Diagnostics 
 - Sélectionner le domaine à tester, donc mail.bourges... 
 - Lancer le diagnostic 
 
-![Diagnostique](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads
+![Diagnostique](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads)
