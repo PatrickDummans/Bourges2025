@@ -12,8 +12,7 @@
 3. Pour l'installation, on s'appuie sur la doc ci-dessous : 
 - https://www.hmailserver.com/documentation/latest/?page=howto_install
 
-
-- Faire suivant jusqu'à ce que l'on vous demande de choisir les **composants** à installer, dans notre cas, nous allons faire une **full installation** c'est-à-dire installer le **server** et **l'administrative tools**. Voir le screenshot ci-dessous : 
+- Faire suivant jusqu'à ce que l'on vous demande de choisir les **composants** à installer, dans notre cas, nous allons faire une **full installation** c'est-à-dire installer le **server** et **l'administrative tools**. 
 
 - Choisir le type de base de données, dans notre cas, ce sera Microsoft SQL Compact.
 
@@ -47,9 +46,32 @@
 
 ![Autoban](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/autoban.png)
 
-5. Vérifier si tout fonctionne convenablement
+
+
+5. Configurer le pare-feu pour le trafic SMTP :
+- Ouvrir le **Pare-feu Windows Defender avec fonctions avancées de sécurité**.
+- Dans les **Règles de trafic entrant**, localiser la règle existante pour SMTP ou en créer une nouvelle.
+- Vérifier que les ports TCP 25 et 587 sont spécifiés comme indiqué dans l'image ci-dessous.
+
+![Pare-feu SMTP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Parefeu%20SMTP.png)
+
+6. Configurer IMAP
+- Ouvrir le **Pare-feu Windows Defender avec fonctions avancées de sécurité**.
+- Aller dans les **Propriétés de IMAP** ensuite séléctionner **Protocoles et Ports** et dans **port local** Mettre **port spécifique** et mettre **143** aisin dans **port distant** mettre **tout les ports**.
+
+![ParfeuIMAP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/ParefeuIMAP.png)
+
+7. Configurer ThunderBird
+- **Enregister un compte** ce rendre dans les **paramètres** de ce dernier 
+- Cliquer sur **modifier le server SMTP** et y **renseigner le nom du server** donc **mail.bourges.sportludique.fr**
+- renseigner le port **587**
+
+![ServerSMTP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Param%C3%A8tres.png)
+
+8. Vérifier si tout fonctionne convenablement
 - Aller dans Utilities et cliquer sur Diagnostics 
 - Sélectionner le domaine à tester, donc mail.bourges... 
 - Lancer le diagnostic 
 
 ![Diagnostique](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads)
+
