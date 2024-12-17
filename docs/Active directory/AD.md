@@ -126,9 +126,5 @@ Foreach($Utilisateur in $CSVData){
 ## Notes
 - Le mot de passe initial est statique (`P@ssw0rd123456!`). Changez-le si nécessaire.
 - Ajoutez d'autres fonctions dans le bloc `Switch` si besoin.
-
+- Le code ci-dessus est un exemple d'un cas concret il faudra donc modifier certaines choses telle que le **csvfile** et les **OU**
 ---
-
-## Auteur
-- **Nom** : *Votre nom*
-- **Contact** : *Votre adresse e-mail*
