@@ -23,3 +23,13 @@ Ouvrir un navigateur et accéder à :
 ```
 http://<IP_SERVEUR>:(leportindiqué)
 ```
+
+## 3. Installation des clients
+
+
+![1eretape](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/1eretape.png)
+
+![2emeetape](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/2emeetape.png)
+
+![3emeetape](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/3emeetape.png)
+
