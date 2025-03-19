@@ -13,7 +13,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - **Adresse IP** à attribuer.
   - **Description** : Borne Aruba.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Reservation%20Borne.PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Reservation%20Borne.PNG)
 
 ---
 
@@ -29,8 +29,8 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - **État** : Activé
   - **Secret partagé** : Définir manuellement ou générer.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Client%20NPS.PNG) 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Conf%20Radius.PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Client%20NPS.PNG) 
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Conf%20Radius.PNG)
 
 ---
 
@@ -42,7 +42,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - **Méthodes d’authentification** : Activer PEAP (Protected EAP).
   - **Désactiver** les méthodes non sécurisées comme PAP, CHAP.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Contraintes.PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Contraintes.PNG)
 
 ---
 
@@ -54,7 +54,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - **Type de port NAS** : Sans fil - IEEE 802.11.
   - **Groupes d’utilisateurs** : LOCAL\WConditionnement.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/VLAN%20Conditionnement%20(conditions).PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/VLAN%20Conditionnement%20(conditions).PNG)
 
 ---
 
@@ -68,7 +68,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - **Tunnel-Server-Auth-ID** : `217`.
   - **Tunnel-Type** : Virtual LANs (VLAN).
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Vlan%20Condtionnement%20(Parametres).PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Vlan%20Condtionnement%20(Parametres).PNG)
 
 ---
 
@@ -79,7 +79,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
   - Autorisation des utilisateurs appartenant aux groupes sélectionnés.
   - Assignation dynamique du VLAN via attributs RADIUS.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Strat%C3%A9gies%20R%C3%A9seau.PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Strat%C3%A9gies%20R%C3%A9seau.PNG)
 
 ---
 
@@ -89,7 +89,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
 - Effectuer une **capture de paquets** avec Wireshark sur le port UDP 1812.
 - Vérifier la présence de requêtes et réponses **Access-Request / Access-Accept**.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Capture%20Radius%20Trame.PNG)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Capture%20Radius%20Trame.PNG)
 
 ---
 
@@ -100,7 +100,7 @@ Ce guide détaille la configuration d'une borne Wi-Fi Aruba avec authentificatio
 - Confirmer que la connexion au serveur RADIUS est fonctionnelle.
 - Vérifier la présence des clients connectés.
 
-🖼️ ![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Administration%20Borne%20Wifi%20Aruba.png)
+![Voir capture d'écran](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Administration%20Borne%20Wifi%20Aruba.png)
 
 ---
 
