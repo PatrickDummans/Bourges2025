@@ -1,77 +1,128 @@
-# Configuration de HmailServer 
+# 📧 Installation et Configuration de HmailServer
 
-### Installer HmailServer
+## 🔧 1. Prérequis
 
-**Prérequis :** VM Windows 10, .Net Framework 2.0 (https://www.microsoft.com/fr-fr/download/details.aspx?id=6041&msockid=1f28469026956a1305a253bd27016bc2).
-
-1. Télécharger la dernière version de hmailserver à partir du lien ci-dessous :
-- https://www.hmailserver.com/download/
-
-2. Lancer l'installeur 
-
-3. Pour l'installation, on s'appuie sur la doc ci-dessous : 
-- https://www.hmailserver.com/documentation/latest/?page=howto_install
-
-- Faire suivant jusqu'à ce que l'on vous demande de choisir les **composants** à installer, dans notre cas, nous allons faire une **full installation** c'est-à-dire installer le **server** et **l'administrative tools**. 
-
-- Choisir le type de base de données, dans notre cas, ce sera Microsoft SQL Compact.
-
-- Choisir où HmailServer créera son raccourci.
-
-- Définir le mot de passe pour HmailServer.
-
-4. Premier problème ! On nous demande d'installer le .Net Framework 2.0. Si on essaye de faire installer le framework à l'installeur, il y aura une erreur, il faut donc au préalable installer ce framework. 
-
-- Tout ceci fait, une fois que l'installation est terminée, il vous suffit de fermer l'installeur une fois que tout est fini, et HmailServer se lancera automatiquement.
+- 💻 **Système** : Windows 10 (machine virtuelle ou physique)
+- 📦 **Composant requis** : [.NET Framework 2.0](https://www.microsoft.com/fr-fr/download/details.aspx?id=6041&msockid=1f28469026956a1305a253bd27016bc2)
+- 🌐 Accès Internet pour le téléchargement des paquets
 
 ---
 
-### Configurer Hmailserver 
+## 🚀 2. Installation de HmailServer
 
-1. Se connecter et entrer le mdp 
+### Étapes :
 
-2. Création du domaine 
-- Cliquer sur domains, ensuite sur add, et créer le domaine ; dans notre cas, ce sera **mail.bourges.sportludique.fr** 
+```bash
+# 1. Télécharger la dernière version de HmailServer
+Naviguer vers : https://www.hmailserver.com/download/
+
+# 2. Lancer le fichier d’installation téléchargé
+
+# 3. Suivre les instructions de l’assistant d’installation :
+- Cliquer sur **Suivant** jusqu’à la section des composants
+- Choisir une **installation complète** (Full Installation) :
+  - ✅ Server
+  - ✅ Administrative Tools
+- Pour la base de données, sélectionner : **Microsoft SQL Compact**
+- Choisir l’emplacement de création du raccourci HmailServer
+- Définir un mot de passe d’administration sécurisé
+
+# 4. Installation du .NET Framework 2.0
+⚠️ Si une erreur survient à ce stade concernant le Framework .NET :
+- Installer **manuellement** la version 2.0 avant de continuer
+
+# 5. Finalisation
+- Fermer l’installeur
+- HmailServer se lance automatiquement à la fin de l’installation
+```
+
+---
+
+## ⚙️ 3. Configuration de HmailServer
+
+### 🔐 Connexion
+
+- Lancer HmailServer Administrator
+- Saisir le mot de passe défini lors de l’installation
+
+---
+
+### 🌐 Création d’un Domaine
+
+1. Aller dans `Domains`
+2. Cliquer sur `Add`
+3. Renseigner le domaine :  
+   **mail.bourges.sportludique.fr**
 
 ![Domain](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/domain.png)
 
-3. Créer des comptes 
-- Cliquer sur account, puis sur Add, et créer 2 mails en définissant les mots de passe qui vont avec
+---
+
+### 👥 Création de Comptes Utilisateurs
+
+1. Naviguer vers `Accounts`
+2. Cliquer sur `Add`
+3. Créer deux adresses mail en définissant leurs mots de passe
 
 ![Comptes](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/comptes.png)
 
-4. Désactiver l'autoban 
-- Dans settings, puis Advanced et Autoban 
-- Décocher la case Enabled
+---
+
+### 🚫 Désactiver l’AutoBan
+
+1. Aller dans `Settings > Advanced > Auto-ban`
+2. **Décocher** l’option `Enabled`
 
 ![Autoban](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/autoban.png)
 
+---
 
+## 🔐 4. Configuration du Pare-feu
 
-5. Configurer le pare-feu pour le trafic SMTP :
-- Ouvrir le **Pare-feu Windows Defender avec fonctions avancées de sécurité**.
-- Dans les **Règles de trafic entrant**, localiser la règle existante pour SMTP ou en créer une nouvelle.
-- Vérifier que les ports TCP 25 et 587 sont spécifiés comme indiqué dans l'image ci-dessous.
+### 📤 Trafic SMTP (Ports 25 et 587)
+
+1. Ouvrir le **Pare-feu Windows Defender avec fonctions avancées de sécurité**
+2. Dans **Règles de trafic entrant**, localiser ou créer une règle pour **SMTP**
+3. S’assurer que les **ports TCP 25 et 587** sont bien autorisés
 
 ![Pare-feu SMTP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Parefeu%20SMTP.png)
 
-6. Configurer IMAP
-- Ouvrir le **Pare-feu Windows Defender avec fonctions avancées de sécurité**.
-- Aller dans les **Propriétés de IMAP** ensuite séléctionner **Protocoles et Ports** et dans **port local** Mettre **port spécifique** et mettre **143** aisin dans **port distant** mettre **tout les ports**.
+---
+
+### 📥 Trafic IMAP (Port 143)
+
+1. Dans le Pare-feu Windows Defender :
+2. Accéder aux **propriétés de IMAP**
+3. Sous l’onglet **Protocoles et Ports** :
+   - Port local : **143**
+   - Port distant : **Tous les ports**
 
 ![ParfeuIMAP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/ParefeuIMAP.png)
 
-7. Configurer ThunderBird
-- **Enregister un compte** ce rendre dans les **paramètres** de ce dernier 
-- Cliquer sur **modifier le server SMTP** et y **renseigner le nom du server** donc **mail.bourges.sportludique.fr**
-- renseigner le port **587**
+---
+
+## 📬 5. Configuration du Client Mail (Thunderbird)
+
+1. Ajouter un compte mail dans Thunderbird
+2. Aller dans les **paramètres du compte**
+3. Modifier le **serveur SMTP** :
+   - Nom du serveur : **mail.bourges.sportludique.fr**
+   - Port : **587**
 
 ![ServerSMTP](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads/main/images/Param%C3%A8tres.png)
 
-8. Vérifier si tout fonctionne convenablement
-- Aller dans Utilities et cliquer sur Diagnostics 
-- Sélectionner le domaine à tester, donc mail.bourges... 
-- Lancer le diagnostic 
+---
+
+## ✅ 6. Vérification via Diagnostics
+
+1. Aller dans le menu `Utilities > Diagnostics`
+2. Sélectionner le domaine : **mail.bourges.sportludique.fr**
+3. Lancer le test de diagnostic
 
 ![Diagnostique](https://raw.githubusercontent.com/PatrickDummans/Bourges2025/refs/heads)
+
+---
+
+💡 **Astuce** : Vérifiez la connectivité SMTP/IMAP depuis l’extérieur à l’aide d’un outil tel que [MXToolbox](https://mxtoolbox.com/) pour un test complet du serveur mail.
+
 
