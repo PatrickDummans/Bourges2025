@@ -9,7 +9,7 @@
 | 211              |   VM-MANA       |  G1 1/0/5 - 6 | 192.168.0.1 |
 | 219              |   VLAN-INTERCO  |  Gi 1/0/7     | 10.0.219.1 |
 | 219              |   LAN - FW (Trunk) |  Gi 1/0/8     | N/D|
-| N/D              |   ARUBA         |  Gi 1/0/10     | N/D |
+| N/D              |   ARUBA (Trunk) |  Gi 1/0/10     | N/D |
 | 215              |   VLAN - WIFI   |  X             | N/D |
 | 213              |   WAN (Access)  |  Gi 1/0/21- 22 | N/D |
 | 213              |   WAN (Trunk)   |  X            | N/D |
