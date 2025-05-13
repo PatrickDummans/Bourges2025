@@ -1,0 +1,2045 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../../Infrastructure/Sch%C3%A9ma%20R%C3%A9seau%20/">
+      
+      
+        <link rel="next" href="../../Antivirus/Proc%C3%A9dure%20Antivirus/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>📧 Configuration Anti-Spam de hMailServer v5.6 - Bourges</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-anti-spam-de-hmailserver-v56" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="Bourges" class="md-header__button md-logo" aria-label="Bourges" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bourges
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📧 Configuration Anti-Spam de hMailServer v5.6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Bourges" class="md-nav__button md-logo" aria-label="Bourges" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bourges
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bourges 2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Conf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/FirewallSN210/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation configuration Firewall &amp; DMZ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Active directory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Active directory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Active%20directory/AD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation du Script PowerShell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Artica
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Artica
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Artica/Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proxy Artica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/DNS/DNS-Publique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation de Configuration DNS (PRIVEE et PUBLIC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HSRP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            HSRP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/HSRP/HSRP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🔁 Mise en place de HSRP pour la haute disponibilité sur le VLAN 213
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messagerie   Hmail
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Messagerie   Hmail
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Messagerie%20-%20Hmail/Conf%20Hmail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📧 Installation et Configuration de HmailServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Radius
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Radius
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Radius/radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📡 Configuration d'une borne Wi-Fi Aruba avec authentification RADIUS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Routeur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Routeur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Routeur/Installation%20du%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routeur CISCO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Supervision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            Supervision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Supervision/Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📌 Guide d'installation de Zabbix 7.x sur Debian 12
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Supervision/SNMPv2C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation Zabbix - Surveillance Cisco, Artica Proxy et Windows Server 2019
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Supervision/zabbix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📡 Installation et Configuration de Zabbix pour la Supervision VPN &amp; SNMP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Wazuh
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Wazuh
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Conf/Wazuh/Install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation : Installation de Wazuh et de ses agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Information
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Information/CMD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📌 Interface Interactive - Commandes et Combinaisons Courantes sous Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Information/Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Switch Coeur de réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Information/Utilisateurs%20%26%20Mots%20de%20pass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utilisateurs et Mots de passe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Information/Windows%20server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧾 Documentation d’Infrastructure Active Directory &amp; Partage de Fichiers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Minicom
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Minicom
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Information/Minicom/minicom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Minicom
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Infrastructure
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Infrastructure/Sch%C3%A9ma%20R%C3%A9seau%20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schéma Réseau
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Situation E6
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Situation E6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HMailServer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            HMailServer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_1" id="__nav_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Antispam
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Antispam
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    📧 Configuration Anti-Spam de hMailServer v5.6
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    📧 Configuration Anti-Spam de hMailServer v5.6
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-acces-aux-parametres-anti-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 1. Accès aux Paramètres Anti-Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tests-anti-spam-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 2. Tests Anti-Spam Disponibles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-seuils-de-marquage-et-de-suppression" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 3. Seuils de Marquage et de Suppression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-modification-de-lobjet-des-messages-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✉️ 4. Modification de l'Objet des Messages Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-integration-avec-spamassassin" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 5. Intégration avec SpamAssassin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configuration-des-listes-noires-dns-dnsbl" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗂️ 6. Configuration des Listes Noires DNS (DNSBL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configuration-des-listes-noires-surbl" class="md-nav__link">
+    <span class="md-ellipsis">
+      📄 7. Configuration des Listes Noires SURBL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-configuration-de-la-liste-blanche" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 8. Configuration de la Liste Blanche
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-autres-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 9. Autres Options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-test-des-parametres-anti-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 10. Test des Paramètres Anti-Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Références
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_2" id="__nav_5_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Antivirus
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Antivirus
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Antivirus/Proc%C3%A9dure%20Antivirus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛡️ Intégration d'un Antivirus Externe dans hMailServer v5.6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_3" id="__nav_5_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Migration DB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Migration DB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration%20DB/Migration%20base%20de%20donn%C3%A9e/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦 Procédure de Migration de la Base de Données HMailServer vers une Nouvelle Machine Virtuelle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-acces-aux-parametres-anti-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 1. Accès aux Paramètres Anti-Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tests-anti-spam-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛡️ 2. Tests Anti-Spam Disponibles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-seuils-de-marquage-et-de-suppression" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ 3. Seuils de Marquage et de Suppression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-modification-de-lobjet-des-messages-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✉️ 4. Modification de l'Objet des Messages Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-integration-avec-spamassassin" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 5. Intégration avec SpamAssassin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configuration-des-listes-noires-dns-dnsbl" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗂️ 6. Configuration des Listes Noires DNS (DNSBL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configuration-des-listes-noires-surbl" class="md-nav__link">
+    <span class="md-ellipsis">
+      📄 7. Configuration des Listes Noires SURBL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-configuration-de-la-liste-blanche" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ 8. Configuration de la Liste Blanche
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-autres-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 9. Autres Options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-test-des-parametres-anti-spam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 10. Test des Paramètres Anti-Spam
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Références
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuration-anti-spam-de-hmailserver-v56">📧 Configuration Anti-Spam de hMailServer v5.6</h1>
+<p>Ce guide détaille les fonctionnalités anti-spam intégrées de hMailServer v5.6 et fournit des instructions pour leur configuration optimale.</p>
+<hr />
+<h2 id="1-acces-aux-parametres-anti-spam">🔧 1. Accès aux Paramètres Anti-Spam</h2>
+<ol>
+<li>Ouvrez <strong>hMailServer Administrator</strong>.</li>
+<li>Naviguez vers :<br />
+<code>Settings &gt; Anti-spam</code></li>
+</ol>
+<hr />
+<h2 id="2-tests-anti-spam-disponibles">🛡️ 2. Tests Anti-Spam Disponibles</h2>
+<p>hMailServer propose plusieurs tests pour évaluer les messages entrants :</p>
+<ul>
+<li><strong>Use SPF</strong> : Vérifie si le serveur expéditeur est autorisé à envoyer des emails pour le domaine.</li>
+<li><strong>Check that sender has DNS-MX records</strong> : Confirme l'existence d'enregistrements MX pour le domaine de l'expéditeur.</li>
+<li><strong>Check that sender has DNS-A record</strong> : Vérifie la présence d'un enregistrement A pour le domaine de l'expéditeur.</li>
+<li><strong>Verify DKIM signature</strong> : Valide la signature DKIM du message.</li>
+<li><strong>Check HELO host</strong> : Analyse la commande HELO/EHLO utilisée par le serveur expéditeur.</li>
+<li><strong>Check that the host is not in DNS blacklist</strong> : Consulte des listes noires DNSBL pour détecter les serveurs connus pour envoyer du spam.</li>
+<li><strong>Check that the sender is not in SURBL</strong> : Vérifie si des liens dans le message pointent vers des domaines répertoriés dans des listes noires SURBL.</li>
+<li><strong>Check that the message has a valid SPF record</strong> : Confirme la validité de l'enregistrement SPF du domaine expéditeur.</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Remarque</strong> : Il est recommandé d'activer ces tests pour renforcer la détection des spams. Cependant, certains tests peuvent entraîner des faux positifs ; ajustez en fonction de vos besoins.</p>
+</blockquote>
+<hr />
+<h2 id="3-seuils-de-marquage-et-de-suppression">⚙️ 3. Seuils de Marquage et de Suppression</h2>
+<ul>
+<li><strong>Spam mark threshold</strong> : Score à partir duquel un message est marqué comme spam (par défaut : <code>5</code>).</li>
+<li><strong>Spam delete threshold</strong> : Score à partir duquel un message est supprimé sans être livré (par défaut : <code>20</code>).</li>
+</ul>
+<blockquote>
+<p>📝 <strong>Conseil</strong> : Adaptez ces seuils en fonction de la sensibilité souhaitée. Un seuil de marquage plus bas augmente la détection, mais peut aussi accroître les faux positifs.</p>
+</blockquote>
+<hr />
+<h2 id="4-modification-de-lobjet-des-messages-spam">✉️ 4. Modification de l'Objet des Messages Spam</h2>
+<ul>
+<li><strong>Add X-hMailServer-Spam header</strong> : Ajoute un en-tête indiquant le score de spam.</li>
+<li><strong>Add X-hMailServer-Reason header</strong> : Fournit la raison pour laquelle le message a été considéré comme spam.</li>
+<li><strong>Add to message subject</strong> : Préfixe l'objet du message avec un texte spécifique (ex. : <code>[SPAM]</code>).</li>
+</ul>
+<blockquote>
+<p>📌 <strong>Astuce</strong> : Ces options facilitent le tri des messages spam dans les clients de messagerie.</p>
+</blockquote>
+<hr />
+<h2 id="5-integration-avec-spamassassin">🧪 5. Intégration avec SpamAssassin</h2>
+<p>hMailServer peut s'intégrer à SpamAssassin pour une analyse approfondie des messages :</p>
+<ol>
+<li>Activez l'option <strong>Use SpamAssassin</strong>.</li>
+<li>Spécifiez l'<strong>hôte</strong> (par défaut : <code>localhost</code>) et le <strong>port</strong> (par défaut : <code>783</code>).</li>
+<li>Cliquez sur <strong>Test</strong> pour vérifier la connexion.</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>Important</strong> : Assurez-vous que le service SpamAssassin (spamd) est en cours d'exécution sur le serveur spécifié.</p>
+</blockquote>
+<hr />
+<h2 id="6-configuration-des-listes-noires-dns-dnsbl">🗂️ 6. Configuration des Listes Noires DNS (DNSBL)</h2>
+<ol>
+<li>Accédez à :<br />
+<code>Settings &gt; Anti-spam &gt; DNS blacklists</code></li>
+<li>Cliquez sur <strong>Add</strong> pour ajouter une nouvelle liste noire.</li>
+<li>Fournissez :</li>
+<li><strong>DNS Host</strong> : Nom de la liste (ex. : <code>zen.spamhaus.org</code>).</li>
+<li><strong>Expected result</strong> : Résultat attendu (souvent <code>127.0.0.2</code>).</li>
+<li><strong>Reject message</strong> : Message à retourner si le test est positif.</li>
+<li><strong>Score</strong> : Score à attribuer si le test est positif.</li>
+</ol>
+<blockquote>
+<p>🔍 <strong>Exemple</strong> :<br />
+DNS Host : <code>zen.spamhaus.org</code><br />
+Expected result : <code>127.0.0.2</code><br />
+Reject message : <code>Rejected by Spamhaus</code><br />
+Score : <code>5</code></p>
+</blockquote>
+<hr />
+<h2 id="7-configuration-des-listes-noires-surbl">📄 7. Configuration des Listes Noires SURBL</h2>
+<ol>
+<li>Accédez à :<br />
+<code>Settings &gt; Anti-spam &gt; SURBL servers</code></li>
+<li>Cliquez sur <strong>Add</strong> pour ajouter une nouvelle liste.</li>
+<li>Fournissez :</li>
+<li><strong>DNS Host</strong> : Nom de la liste (ex. : <code>multi.surbl.org</code>).</li>
+<li><strong>Expected result</strong> : Résultat attendu (souvent <code>127.0.0.2</code>).</li>
+<li><strong>Reject message</strong> : Message à retourner si le test est positif.</li>
+<li><strong>Score</strong> : Score à attribuer si le test est positif.</li>
+</ol>
+<blockquote>
+<p>📝 <strong>Remarque</strong> : Les listes SURBL analysent les liens contenus dans les messages pour détecter des domaines associés au spam.</p>
+</blockquote>
+<hr />
+<h2 id="8-configuration-de-la-liste-blanche">✅ 8. Configuration de la Liste Blanche</h2>
+<p>Pour éviter que des expéditeurs légitimes soient marqués comme spam :</p>
+<ol>
+<li>Accédez à :<br />
+<code>Settings &gt; Anti-spam &gt; White listing</code></li>
+<li>Cliquez sur <strong>Add</strong>.</li>
+<li>Spécifiez :</li>
+<li><strong>Lower IP</strong> et <strong>Upper IP</strong> : Plage d'adresses IP à autoriser.</li>
+<li><strong>Email address</strong> : Adresse email ou domaine à autoriser.</li>
+<li><strong>Description</strong> : Commentaire optionnel.</li>
+</ol>
+<blockquote>
+<p>🔐 <strong>Conseil</strong> : Utilisez la liste blanche avec parcimonie pour ne pas compromettre l'efficacité des filtres anti-spam.</p>
+</blockquote>
+<hr />
+<h2 id="9-autres-options">🧰 9. Autres Options</h2>
+<ul>
+<li><strong>Maximum message size to scan</strong> : Taille maximale des messages à analyser (en Ko).</li>
+<li><strong>Bypass spam checks for authenticated users</strong> : Ignore les tests anti-spam pour les utilisateurs authentifiés.</li>
+<li><strong>Bypass spam checks for local to local email</strong> : Ignore les tests pour les emails internes.</li>
+</ul>
+<blockquote>
+<p>⚙️ <strong>Astuce</strong> : Ces options permettent d'optimiser les performances et d'éviter des analyses inutiles.</p>
+</blockquote>
+<hr />
+<h2 id="10-test-des-parametres-anti-spam">🔄 10. Test des Paramètres Anti-Spam</h2>
+<p>Pour vérifier l'efficacité de votre configuration :</p>
+<ol>
+<li>Envoyez un email contenant la chaîne GTUBE suivante dans le corps du message :</li>
+</ol>
+<p><code>XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X</code></p>
+<ol>
+<li>Ce message doit être détecté comme spam par hMailServer.</li>
+</ol>
+<blockquote>
+<p>🧪 <strong>Remarque</strong> : Ce test simule un message spam standard pour vérifier les filtres.</p>
+</blockquote>
+<hr />
+<h2 id="references">📚 Références</h2>
+<ul>
+<li>Documentation officielle : <a href="https://www.hmailserver.com/documentation/v5.6/?page=reference_antispam">hMailServer Anti-Spam Reference</a></li>
+<li>Guide d'installation de SpamAssassin : <a href="https://charmingwebdesign.com/how-to-install-spamassassin-for-windows-and-spamd-service-hmailserver-forum/">Charming Cloud Blog</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
