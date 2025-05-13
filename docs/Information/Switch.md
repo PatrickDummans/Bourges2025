@@ -37,9 +37,9 @@
 
 | Port             | Mode            | Encapsulation             | IP          | Native vlan |
 | :--------------- | :--------------:|:-------------------------:|:-----------:|:-----------:|
-| Gi1/0/8          | On              | 802.1q                    | trunking    | 1           |
-| Gi1/0/10         | On              | 802.1q                    | trunking    | 210         |
-| Gi1/0/15         | On              | 802.1q                    | trunking    | 1           |
+| Gi1/0/8          | On              | 802.1q                    | Trunking    | 1           |
+| Gi1/0/10         | On              | 802.1q                    | Trunking    | 210         |
+| Gi1/0/15         | On              | 802.1q                    | Trunking    | 1           |
 
  
 
